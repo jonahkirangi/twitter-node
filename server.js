@@ -7,13 +7,15 @@ var router = express.Router();
 var T = new Twit(config);
 
 // Routing
-router.get('/', function(req, res) {
+app.use('/', router);
+
+router.use(express.static(__dirname + '/app'));
+
+router.get('/grabtweets', function(req, res) {
   T.get('statuses/user_timeline', { screen_name: 'jonahkirangi', count: '10' },  function (err, data, response) {
   res.send(data);
   });
 });
-
-app.use('/', router);
 
 // Start server
 app.listen(3000);
