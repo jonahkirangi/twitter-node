@@ -8,13 +8,16 @@ var T = new Twit(config);
 
 // Routing
 app.use('/', router);
-app.set('view engine', 'ejs');
+app.set('view engine', 'hbs');
 
 router.use(express.static(__dirname + '/app'));
 
-router.get('/', function(req, res) {
-  T.get('statuses/user_timeline', { screen_name: 'jonahkirangi', count: '10' },  function (err, data, response) {
-  res.send(data);
+// Get Tweets
+app.get('/', function (req, res) {
+  var user = 'jonahkirangi';
+  T.get('statuses/user_timeline', { screen_name: user, count: 20 }, function (err, data) {
+    console.log('Retrieved ' + data.length + ' tweets from ' + user);
+    res.send(data);
   });
 });
 

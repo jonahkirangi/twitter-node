@@ -13,8 +13,8 @@
   "author": "Jonah Kirangi",
   "license": "MIT",
   "dependencies": {
-    "ejs": "^1.0.0",
     "express": "^4.10.2",
+    "hbs": "^2.7.0",
     "twit": "^1.1.18"
   }
 }
