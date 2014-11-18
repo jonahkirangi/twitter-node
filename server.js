@@ -8,10 +8,11 @@ var T = new Twit(config);
 
 // Routing
 app.use('/', router);
+app.set('view engine', 'ejs');
 
 router.use(express.static(__dirname + '/app'));
 
-router.get('/grabtweets', function(req, res) {
+router.get('/', function(req, res) {
   T.get('statuses/user_timeline', { screen_name: 'jonahkirangi', count: '10' },  function (err, data, response) {
   res.send(data);
   });
