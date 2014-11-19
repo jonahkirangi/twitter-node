@@ -13,11 +13,12 @@ app.set('view engine', 'hbs');
 router.use(express.static(__dirname + '/app'));
 
 // Get Tweets
-app.get('/', function (req, res) {
-  var user = 'jonahkirangi';
-  T.get('statuses/user_timeline', { screen_name: user, count: 20 }, function (err, data) {
-    console.log('Retrieved ' + data.length + ' tweets from ' + user);
-    res.send(data);
+app.get('/getposts', function(req,res){
+  console.log(req.headers.referer.split('=')[1]);
+  var searchTerm = req.headers.referer.split('=')[1];
+  T.get('statuses/user_timeline', { screen_name: searchTerm, count: '20'}, function(err, reply) {
+    console.log('Retrieved ' + reply.length + ' tweets from @' + searchTerm);
+    res.send(reply);
   });
 });
 
