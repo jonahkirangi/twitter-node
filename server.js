@@ -16,7 +16,7 @@ router.use(express.static(__dirname + '/app'));
 app.get('/getposts', function(req, res) {
   var searchTerm = req.headers.referer.split('=')[1];
 
-  T.get('statuses/user_timeline', { screen_name: searchTerm, count: '20' }, function(err, data) {
+  T.get('statuses/user_timeline', { screen_name: searchTerm, count: '50' }, function(err, data) {
     console.log('Retrieved ' + data.length + ' tweets from @' + searchTerm);
     res.send(data);
   });

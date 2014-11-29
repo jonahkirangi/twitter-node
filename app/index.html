@@ -16,21 +16,20 @@
       <p>Type a user name and Twitter's API will return the last 20 tweets by that person</p>
       <hr>
 
-    <form class="search" action="">
-      Exact Screen Name: <input type="text" name="searchTerm">
-      <button>Submit</button>
-    </form>
+      <form class="search" action="">
+        Exact Screen Name: <input type="text" name="searchTerm">
+        <button>Submit</button>
+      </form>
 
-    <ul class="tweets">
-      <script id="tweets" type="text/x-handlebars-template">
-      {{#each this}}
-        <li><img src="{{postersURLimg}}">{{date}}</li>
-        <li>{{text}}  </li>
-        <a href="{{link}}">{{link}}</a><br>
-      {{/each}}
-      <br>
-      </script>
-    </ul>
+      <ul class="tweets">
+        <script id="tweets" type="text/x-handlebars-template">
+        {{#each this}}
+          <li><img src="{{postersURLimg}}">{{date}}<br>
+          {{text}}<br>
+          <a href="{{link}}">{{link}}</a></li>
+        {{/each}}
+        </script>
+      </ul>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

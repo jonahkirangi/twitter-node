@@ -1,10 +1,10 @@
 {
   "name": "twitter-node",
   "version": "1.0.0",
-  "description": "Exploring the twitter API with node",
+  "description": "Interact with the Twitter API using node.js",
   "main": "server.js",
   "scripts": {
-    "test": "npm test"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
